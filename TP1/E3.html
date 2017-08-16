@@ -1,0 +1,42 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template</title>
+	</head>
+		<canvas id="canvas" width="900" height="600" style="border:#000 solid 1px;" />
+	</body>
+	<script type="text/javascript">
+
+		var ctx = document.getElementById("canvas").getContext("2d");
+
+		var width = 300;
+		var height = 300;
+		var imageData = ctx.createImageData(width, height);
+
+		function degradarColor(width,indice,final){
+
+			var color = Math.floor((indice/width)*final);
+			return color;
+		}
+
+
+		for (var i = 0; i <width; i++) {
+			for (var j = 0; j < height; j++) {
+					setPixel(imageData,i,j,degradarColor(width,i,126),degradarColor(width,i,121),degradarColor(width,i,235), 255);
+				}
+		}
+
+		ctx.putImageData(imageData,100,100);
+
+		function setPixel(imageData,i,j,r,g,b,a){
+			index = (i + j * imageData.width) * 4;
+			imageData.data[index+0] = r;
+			imageData.data[index+1] = g;
+			imageData.data[index+2] = b;
+			imageData.data[index+3] = a;
+		}
+	</script>
+
+</html>
