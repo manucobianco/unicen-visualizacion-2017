@@ -11,24 +11,32 @@
 
 		var ctx = document.getElementById("canvas").getContext("2d");
 
-		var width = 300;
+		var width = 800;
 		var height = 300;
 		var imageData = ctx.createImageData(width, height);
 
 		function degradarColor(width,indice,final){
 
-			var color = Math.floor((indice/width)*final);
+			var color =  Math.floor((indice/width)*final) ;
 			return color;
 		}
-
-
+		function degradarColorAColor(width,i,inicial,final){
+			var color = inicial - (((i-width/2)/(width/2))*final)
+			return color
+		}
+ //NO SON LOS COLORES, REEVER LA FUNCION degradarColorAColor()
+ //SE COMPLICA INTENTAR HACER UNA FUNCION GENERICA :p
 		for (var i = 0; i <width; i++) {
 			for (var j = 0; j < height; j++) {
-					setPixel(imageData,i,j,degradarColor(width,i,126),degradarColor(width,i,121),degradarColor(width,i,235), 255);
+					 if (i<width/2){
+					 	setPixel(imageData,i,j,degradarColor(width,i,252),degradarColor(width,i,88),degradarColor(width,i,124), 255);
+					 }else{
+						setPixel(imageData,i,j,degradarColorAColor(width,i,38,246),degradarColorAColor(width,i,212,66),degradarColorAColor(width,i,236,66), 255);
+					 }
 				}
 		}
 
-		ctx.putImageData(imageData,100,100);
+		ctx.putImageData(imageData,50,150);
 
 		function setPixel(imageData,i,j,r,g,b,a){
 			index = (i + j * imageData.width) * 4;
