@@ -14,9 +14,15 @@
 		var height = 300;
 		var imageData = ctx.createImageData(width, height);
 
-		for (var i = 0; i <width; i++) {
+		for (var i = 0; i <width/2; i++) {
 			for (var j = 0; j < height; j++) {
 				setPixel(imageData,i,j,226, 168, 244,255);
+			}
+		}
+
+		for (var i = width/2; i <width; i++) {
+			for (var j = 0; j < height; j++) {
+				setPixel(imageData,i,j,126, 121, 235, 255);
 			}
 		}
 
