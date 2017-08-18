@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template</title>
+	</head>
+		<canvas id="canvas" width="900" height="600" style="border:#000 solid 1px;" />
+	</body>
+	<script type="text/javascript">
+		var ctx = document.getElementById("canvas").getContext("2d");
+
+		var image1 = new Image();
+		// image1.src = "https://www.solofondos.com/wp-content/uploads/2016/06/p_chan_wallpaper_by_erik_schepers-d3kggv2.png";
+		image1.crossOrigin = '';
+ 		image1.src = "http://i.imgur.com/rfIFUqd.jpg";
+
+		image1.onload = function(){
+
+			ctx.drawImage(this, 0,0);
+
+			imageData = ctx.getImageData(0,0, this.width, this.height);
+
+			for (var x = 0; x < imageData.width; x++) {
+				for (var y = 0; y < imageData.height; y++) {
+					var rojo = getRed(imageData,x,y);
+					var verde = getGreen(imageData,x,y);
+					var azul = getBlue(imageData,x,y);
+
+					var negros = (rojo+verde+azul)/3;
+					setPixel(imageData,x,y,255-rojo,255-verde,255-azul,255);
+				}
+			}
+
+			ctx.putImageData(imageData,100,100);
+
+			for (var x = 0; x < imageData.width; x++) {
+				for (var y = 0; y < imageData.height; y++) {
+					var rojo = getRed(imageData,x,y);
+					var verde = getGreen(imageData,x,y);
+					var azul = getBlue(imageData,x,y);
+
+					var negros = (rojo+verde+azul)/3;
+					setPixel(imageData,x,y,negros,negros,negros,255);
+				}
+			}
+
+			ctx.putImageData(imageData,200,200);
+		}
+
+		function getRed(imageData, x, y){
+	    index = (x + y * imageData.width) * 4;
+	    return imageData.data[index+0];
+	  }
+
+	  function getGreen(imageData, x, y){
+	    index = (x + y * imageData.width) * 4;
+	    return imageData.data[index+1];
+	  }
+
+	  function getBlue(imageData, x, y){
+	    index = (x + y * imageData.width) * 4;
+	    return imageData.data[index+2];
+	  }
+
+		function setPixel(imageData,i,j,r,g,b,a){
+			index = (i + j * imageData.width) * 4;
+			imageData.data[index+0] = r;
+			imageData.data[index+1] = g;
+			imageData.data[index+2] = b;
+			imageData.data[index+3] = a;
+		}
+
+	</script>
+</html>
