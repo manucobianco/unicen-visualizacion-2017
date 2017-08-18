@@ -21,6 +21,7 @@
 
 			imageData = ctx.getImageData(0,0, this.width, this.height);
 
+//NEGATIVOS
 			for (var x = 0; x < imageData.width; x++) {
 				for (var y = 0; y < imageData.height; y++) {
 					var rojo = getRed(imageData,x,y);
@@ -32,8 +33,9 @@
 				}
 			}
 
-			ctx.putImageData(imageData,100,100);
+			ctx.putImageData(imageData,0,0);
 
+//ESCALA DE NEGROS
 			for (var x = 0; x < imageData.width; x++) {
 				for (var y = 0; y < imageData.height; y++) {
 					var rojo = getRed(imageData,x,y);
@@ -45,8 +47,56 @@
 				}
 			}
 
+			ctx.putImageData(imageData,100,100);
+
+//SEPIA
+			for (var x = 0; x < imageData.width; x++) {
+				for (var y = 0; y < imageData.height; y++) {
+					var rojo = getRed(imageData,x,y);
+					var verde = getGreen(imageData,x,y);
+					var azul = getBlue(imageData,x,y);
+
+					sepiaR = Math.floor(0.393*rojo + 0.769*verde+ 0.189*azul);
+	        sepiaG = Math.floor(0.349*rojo + 0.686*verde + 0.168*azul);
+	        sepiaB = Math.floor(0.272*rojo + 0.534*verde + 0.131*azul);
+
+					setPixel(imageData,x,y,sepiaR,sepiaG,sepiaB,255);
+				}
+			}
+
 			ctx.putImageData(imageData,200,200);
+
+
+//BINARIZACION
+			for (var x = 0; x < imageData.width; x++) {
+				for (var y = 0; y < imageData.height; y++) {
+					var rojo = getRed(imageData,x,y);
+					var verde = getGreen(imageData,x,y);
+					var azul = getBlue(imageData,x,y);
+
+					var negros = (rojo+verde+azul)/3;
+					var puntoMedio = 128;
+
+					function binario(puntoMedio){
+						if(negros>=puntoMedio){
+							return 0;
+						}else{
+							return 255;
+						}
+					}
+
+					setPixel(imageData,x,y,binario(puntoMedio),binario(puntoMedio),binario(puntoMedio),255);
+				}
+			}
+
+			ctx.putImageData(imageData,300,300);
 		}
+//
+// hacer :
+// 	-brillo
+// 	-suabisado
+// 	-deteccion de vordes
+// 	-blur
 
 		function getRed(imageData, x, y){
 	    index = (x + y * imageData.width) * 4;
