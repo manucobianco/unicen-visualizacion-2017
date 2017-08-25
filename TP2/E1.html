@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>E1</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300" style="border:#000 solid 1px;" />
+
+
+    <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      canvas.onclick = pintarOnClick;
+      canvas.ondblclick = pintarOnDoubleClick;
+      canvas.onmouseout = pintarOnMouseOut;
+      canvas.onmouseover = pintarOnMouseOver;
+
+      function pintarOnClick(){
+        ctx.fillStyle = "#ebc9fb";
+        ctx.fillRect(0,0,300,300);
+      }
+
+      function pintarOnMouseOut(){
+        ctx.fillStyle = "#b2e5fe";
+        ctx.fillRect(0,0,300,300);
+      }
+
+      function pintarOnMouseOver(){
+        ctx.fillStyle = "#bffeb2";
+        ctx.fillRect(0,0,300,300);
+      }
+
+      function pintarOnDoubleClick(){
+        ctx.fillStyle = "#fecdb2";
+        ctx.fillRect(0,0,300,300);
+      }
+
+    </script>
+  </body>
+</html>
