@@ -1,0 +1,12 @@
+#canvasOriginal{
+  width:600;
+  height:400;
+  border:#000 solid 1px;
+  display: none;
+}
+
+#canvasEditado{
+  width:600;
+  height:400;
+  border:#000 solid 1px;
+}
