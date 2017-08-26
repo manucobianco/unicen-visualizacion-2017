@@ -1,12 +1,26 @@
 #canvasOriginal{
-  width:600;
-  height:400;
-  border:#000 solid 1px;
   display: none;
 }
 
 #canvasEditado{
-  width:600;
-  height:400;
-  border:#000 solid 1px;
+  margin: auto;
+  display: block;
+  border:solid 1px;
+  border-color: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+#slide{
+ margin: 10px;
+}
+
+body{
+  background-color: #1c1e25;
+}
+
+#file-input{
+  color: white;
+  display: none;
 }

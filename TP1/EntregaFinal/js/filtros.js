@@ -1,11 +1,11 @@
-var imgOriginal = document.getElementById("canvasOriginal").getContext("2d");
-var ctxEditado = document.getElementById("canvasEditado").getContext("2d");
+var ctxOriginal = document.getElementById("canvasOriginal").getContext("2d");
+var ctx = document.getElementById("canvasEditado").getContext("2d");
 
-var ctx2 = document.getElementById("canvas2").getContext("2d");
-var ctx3 = document.getElementById("canvas3").getContext("2d");
-var ctx4 = document.getElementById("canvas4").getContext("2d");
-var ctx5 = document.getElementById("canvas5").getContext("2d");
-var ctx6 = document.getElementById("canvas5").getContext("2d");
+var img1 = document.getElementById("canvas2");
+var img2 = document.getElementById("canvas3");
+var img3 = document.getElementById("canvas4");
+var img4 = document.getElementById("canvas5");
+var img5 = document.getElementById("canvas5");
 
 $("#slide").hide();
 
@@ -24,22 +24,24 @@ $(function() {
     });
 
     function fileOnload(e) {
-        imgOriginal = $('<img>', { src: e.target.result });
+        img = new Image();
+        img.src = e.target.result;
+        img.onload = function() {
 
-        imgOriginal.load(function() {
-
-          ctx.drawImage(this, 0, 0,canvas.width,canvas.height);
-
-          imageData = ctx.getImageData(0,0, this.width, this.height);
+          ctx.drawImage(this, 0, 0,canvasEditado.width,canvasEditado.height);
+          imageData = ctx.getImageData(0,0, canvasEditado.width, canvasEditado.height);
+          ctxOriginal.putImageData(imageData,0,0);
 
 ////////////////ESCALA DE NEGROS////////////////
           function negros(){
             $("#slide").hide();
+            var auxxxx = ctxOriginal.getImageData(0,0,canvasEditado.width, canvasEditado.height);
+
             for (var x = 0; x < imageData.width; x++) {
               for (var y = 0; y < imageData.height; y++) {
-                var rojo = getRed(imageData,x,y);
-                var verde = getGreen(imageData,x,y);
-                var azul = getBlue(imageData,x,y);
+                var rojo = getRed(auxxxx,x,y);
+                var verde = getGreen(auxxxx,x,y);
+                var azul = getBlue(auxxxx,x,y);
 
                 var negros = (rojo+verde+azul)/3;
                 setPixel(imageData,x,y,negros,negros,negros,255);
@@ -56,11 +58,13 @@ $(function() {
 ////////////////NEGATIVOS////////////////
         function negativos(){
           $("#slide").hide();
+          var auxxxx = ctxOriginal.getImageData(0,0,canvasEditado.width, canvasEditado.height);
+
           for (var x = 0; x < imageData.width; x++) {
             for (var y = 0; y < imageData.height; y++) {
-              var rojo = getRed(imageData,x,y);
-              var verde = getGreen(imageData,x,y);
-              var azul = getBlue(imageData,x,y);
+              var rojo = getRed(auxxxx,x,y);
+              var verde = getGreen(auxxxx,x,y);
+              var azul = getBlue(auxxxx,x,y);
 
               var negros = (rojo+verde+azul)/3;
               setPixel(imageData,x,y,255-rojo,255-verde,255-azul,255);
@@ -77,11 +81,12 @@ $(function() {
 ////////////////SEPIA////////////////
           function sepia(){
             $("#slide").hide();
+            var auxxxx = ctxOriginal.getImageData(0,0,canvasEditado.width, canvasEditado.height);
             for (var x = 0; x < imageData.width; x++) {
               for (var y = 0; y < imageData.height; y++) {
-                var rojo = getRed(imageData,x,y);
-                var verde = getGreen(imageData,x,y);
-                var azul = getBlue(imageData,x,y);
+                var rojo = getRed(auxxxx,x,y);
+                var verde = getGreen(auxxxx,x,y);
+                var azul = getBlue(auxxxx,x,y);
 
                 sepiaR = Math.floor(0.393*rojo + 0.769*verde+ 0.189*azul);
                 sepiaG = Math.floor(0.349*rojo + 0.686*verde + 0.168*azul);
@@ -101,11 +106,12 @@ $(function() {
 ////////////////BINARIZACION////////////////
         function binarizacion(){
           $("#slide").hide();
+          var auxxxx = ctxOriginal.getImageData(0,0,canvasEditado.width, canvasEditado.height);
           for (var x = 0; x < imageData.width; x++) {
             for (var y = 0; y < imageData.height; y++) {
-              var rojo = getRed(imageData,x,y);
-              var verde = getGreen(imageData,x,y);
-              var azul = getBlue(imageData,x,y);
+              var rojo = getRed(auxxxx,x,y);
+              var verde = getGreen(auxxxx,x,y);
+              var azul = getBlue(auxxxx,x,y);
 
               var negros = (rojo+verde+azul)/3;
               var puntoMedio = 128;
@@ -130,15 +136,40 @@ $(function() {
 
 ////////////////BRILLO////////////////
           function brillo(){
-            $("#slide").show();
+            var slideVal = parseInt($("#slide").val());
+            var auxxxx = ctxOriginal.getImageData(0,0,canvasEditado.width, canvasEditado.height);
+
+            for (var x = 0; x < imageData.width; x++) {
+              for (var y = 0; y < imageData.height; y++) {
+                var rojo = getRed(auxxxx,x,y);
+                var verde = getGreen(auxxxx,x,y);
+                var azul = getBlue(auxxxx,x,y);
+
+                setPixel(imageData,x,y,rojo+slideVal,verde+slideVal,azul+slideVal,255);
+              }
+            }
+
+            ctx.putImageData(imageData,0,0);
           }
-          $("#canvas6").on("click",function(){
+
+          $("#slide").change(function(){
             brillo();
           });
+
+          $("#canvas6").on("click",function(){
+            brillo();
+            $("#slide").show();
+          });
 ////////////////
-        });
+        };
     }
 });
+
+$("#btnDescargar").on("click",function(){
+  var url = document.getElementById("canvasEditado").toDataURL("image/png");
+  $("#btnDescargar").attr("href",url);
+});
+
 
 function getRed(imageData, x, y){
   index = (x + y * imageData.width) * 4;

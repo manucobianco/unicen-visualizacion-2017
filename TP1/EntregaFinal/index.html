@@ -2,27 +2,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Template</title>
-		<script src="js/jquery-2.1.4.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
 		<link rel="stylesheet" href="css/style.css">
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Editor de imagenes</title>
+
+
 
 	</head>
 	<body>
 
-		<canvas id="canvasOriginal" /></canvas>
-		<canvas id="canvasEditado" width="600" height="400" style="border:#000 solid 1px;" /></canvas>
+			<nav class="navbar navbar-light bg-light justify-content-between">
+			  <a class="navbar-brand">Editor de imagenes</a>
+			  <form class="form-inline">
+					<label class="btn btn-success my-2 my-sm-0">
+						Subir Imagen
+						<input type="file" id="file-input">
+					</label>
+					<a class="btn btn-outline-success my-2 my-sm-0" id="btnDescargar" type="button" name="button" href="#" download >Descargar Imagen</a>
+			  </form>
+			</nav>
 
-		<canvas id="canvas2" width="100" height="100" style="border:#000 solid 1px;" /></canvas>
-		<canvas id="canvas3" width="100" height="100" style="border:#000 solid 1px;" /></canvas>
-		<canvas id="canvas4" width="100" height="100" style="border:#000 solid 1px;" /></canvas>
-		<canvas id="canvas5" width="100" height="100" style="border:#000 solid 1px;" /></canvas>
-		<canvas id="canvas6" width="100" height="100" style="border:#000 solid 1px;" /></canvas>
+			<div class="row">
+				<div class="col">
+					<canvas id="canvasOriginal" width="600" height="400" /></canvas>
+					<canvas id="canvasEditado" class="img-fluid" width="600" height="400"  /></canvas>
+				</div>
+			</div>
 
-		<input type="file" id="file-input">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<input class="text-center" type="range" id="slide" min="-255" max="255" step="1" value="0">
+				</div>
+			</div>
 
-		<input type="range" id="slide">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<img class="img-thumbnail" id="canvas2" width="100" height="100" src="img/negra.png" />
+					<img class="img-thumbnail" id="canvas3" width="100" height="100" src="img/negativa.png" />
+					<img class="img-thumbnail" id="canvas4" width="100" height="100" src="img/sepia.png" />
+					<img class="img-thumbnail" id="canvas5" width="100" height="100" src="img/binaria.png" />
+					<img class="img-thumbnail" id="canvas6" width="100" height="100" src="img/brillo.png" />
+				</div>
+			</div>
 
+
+
+
+
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/filtros.js"></script>
 	</body>
 </html>
