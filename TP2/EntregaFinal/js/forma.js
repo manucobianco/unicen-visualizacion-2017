@@ -1,19 +1,20 @@
 class Forma {
 
-  constructor(paramPosX, paramPosY,paramWidth,paramHeight,paramColor,paramId){
-    this.posX = paramPosX;
-    this.posY = paramPosY;
+  constructor(paramWidth,paramHeight,paramColor,paramId){
     this.width = paramWidth;
     this.height = paramHeight;
     this.color = paramColor;
     this.id = paramId;
   }
 
-  pintar(ctx){
+  pintar(ctx,x,y){
       ctx.fillStyle = this.color;
-      ctx.fillRect(this.posX,this.posY,this.width,this.height);
+      ctx.fillRect(x,y,this.width,this.height);
   }
-  //
+
+  getId(){
+    return this.id;
+  }
   // clicked(){
   //   var clickeando = true;
   //   var mX = e.layerX; //clientX

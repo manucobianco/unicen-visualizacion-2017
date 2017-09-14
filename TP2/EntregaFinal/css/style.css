@@ -1,0 +1,12 @@
+#canvas{
+  margin: auto;
+  display: block;
+  border:solid 1px;
+  border-color: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+body{
+  background-color: #3e404a;
+}
