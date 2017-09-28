@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+          <img src="images/brand.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          <span class="brand_font">Tio Pocho</span>
+        </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Productos <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link"  data-toggle="modal" href="#myModal" aria-expanded="false">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Carrito</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Titulo frente al video background  -->
+
+  <div class="title-container">
+    <div class="headline">
+      <h1 class="logo">Tio Pocho5</h1>
+      <h3 class="text-white text-thin">Cerveza hecha en casa</h3>
+      <h5 class="text-white text-thin">Elegi la  <a class="coverr-nav-item btn-track" href="#newsletter" data-event="MondayScroll_Click" style="text-decoration: none; border-bottom: 1px dotted #fff; color: #fff;">tuya</a></h5>
+    </div>
+  </div>
+
+  <!-- Video Background  -->
+
+  <div class="homepage-hero-module">
+    <div class="video-container">
+      <div class="filter"></div>
+      <video autoplay loop class="fillWidth" poster="images/beer.png" muted>
+        <source src="videos/beer.mp4" type="video/mp4" />Su navegador no soporta formatos de video. Le sugerimos que lo actualize
+        <source src="videos/beer.webm" type="video/webm" />Su navegador no soporta formatos de video. Le sugerimos que lo actualize
+      </video>
+    </div>
+  </div>
+
+  <!-- Contenido  -->
+
+  <div class="container-fluid gris">
+    <div class="container espaciado">
+      <!-- Promociones -->
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-expanded="true">Productos Destacados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile">Ultimas publicaciones</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+
+        <!-- Productos destacados -->
+
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="images/barley-wine.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Destacado 1</h4>
+                  <p class="card-text">SLorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae.</p>
+                  <a href="item_description.html" class="btn btn-primary">Mas info</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="images/honey-beer.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Destacado 2</h4>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae.</p>
+                  <a href="#" class="btn btn-primary">Mas info</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="images/imperial-stout.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Destacado 3</h4>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae.</p>
+                  <a href="#" class="btn btn-primary">Mas info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultimas publicaciones -->
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="images/kolsch.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Ultimo 1</h4>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae</p>
+                  <a href="#" class="btn btn-primary">Mas info</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="images/porter.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Ultimo 2</h4>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae</p>
+                  <a href="#" class="btn btn-primary">Mas info</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="images/scotch.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Ultimo 3</h4>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae</p>
+                  <a href="#" class="btn btn-primary">Mas info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Pequeña historia -->
+    <div class="container-fluid blanco">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <img src="http://www.cervezaantares.com/wp-content/uploads/2016/08/MDP-1.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+
+        <div class="col-md-4 my-auto">
+          <h3>Historia</h3>
+          <p class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deserunt dicta beatae illo dolorum distinctio officiis
+            non sunt. Aliquam excepturi deserunt laudantium sapiente necessitatibus! Accusamus odio at harum quis veritatis?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nos encantaria saber que opinas</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal col-sm-12">
+                    <div class="form-group"><label>Nombre</label><input class="form-control required" placeholder="Su nombre" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text"></div>
+                    <div class="form-group"><label>Mensaje</label><textarea class="form-control" placeholder="Aqui va su mensaje.." data-placement="top" data-trigger="manual"></textarea></div>
+                    <div class="form-group"><label>E-Mail</label><input class="form-control email" placeholder="email@usted.com" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)" type="text"></div>
+                    <div class="form-group"><button type="submit" class="btn btn-success pull-right">Enviar!</button> </div>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+  <!-- Footer  -->
+
+  <footer class="bs-docs-footer ">
+    <div class="container">
+      <p>© 2015 Copyright Heineken N.V. All Rights Reserved </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript files-->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
